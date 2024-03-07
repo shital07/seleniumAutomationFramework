@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" data-provider-thread-count="2">
+    <listeners>
+        <listener class-name="com.learn.listeners.ListenerClass" />
+        <listener class-name="com.learn.listeners.MethodIntersceptor" />
+
+    </listeners>
+    <test name="Test Tags" thread-count="1" parallel="methods">
+        <classes>
+          <!--  <class name="com.learn.tests.HomepageTest"/>-->
+           <!-- <class name="com.learn.tests.LoginpageTests"/>-->
+            <class name="com.learn.tests.OrangeHRMTests"/>
+            <class name="com.learn.tests.AmazonHomeTest"/>
+
+
+        </classes>
+    </test>
+</suite>
