@@ -1,6 +1,5 @@
 package com.learn.reports;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import java.util.Objects;
@@ -15,7 +14,7 @@ public final class ExtendReportManager {
 
      static ExtentTest getExTest() {
 
-        return threadLocal.get();
+         return threadLocal.get();
     }
 
      static void setExtest(ExtentTest extentTest) {

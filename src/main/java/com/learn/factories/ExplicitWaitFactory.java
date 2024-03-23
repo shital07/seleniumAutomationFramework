@@ -11,24 +11,33 @@ import java.time.Duration;
 
 public class ExplicitWaitFactory {
 
-    public static void performExplicitWait(WaitStrategy strategy,WebElement element){
+    public static void performExplicitWait(WaitStrategy strategy, WebElement element) {
 
-        if(strategy == WaitStrategy.CLICKABLE){
+        if (strategy == WaitStrategy.CLICKABLE) {
             new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
                     .withTimeout(Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(element));
 
-        }else if(strategy == WaitStrategy.PRESENCE){
+        } else if (strategy == WaitStrategy.PRESENCE) {
 
             new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
                     .withTimeout(Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(element));
 
-        }else if(strategy == WaitStrategy.VISIBLE){
+        } else if (strategy == WaitStrategy.VISIBLE) {
             new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
                     .withTimeout(Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(element));
 
-        }else if(strategy== WaitStrategy.NONE){
+        } else if (strategy == WaitStrategy.NONE) {
 
 
+        } else if (strategy == WaitStrategy.HANDLESTALELEMENT) {
+
+            new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
+                    .until(d -> {
+
+                        d.navigate().refresh();
+                       return  d.findElement((By) element);
+
+                    });
         }
     }
 

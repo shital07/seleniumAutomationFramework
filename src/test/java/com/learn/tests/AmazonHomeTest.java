@@ -17,10 +17,6 @@ public final class AmazonHomeTest extends BaseTest{
     @Test(dataProvider = "getData",dataProviderClass = DataProviderUtils.class)
     public void amazonTest(Map<String,String> data){
 
-        System.out.println(data.get("Menu"));
-        for(Map.Entry<String,String> e:data.entrySet()){
-            System.out.println(e.getKey() + " " + e.getValue());
-        }
         String title = new AmazonHomePage().clickHumburger().clickEchoandAlexaLink().clickSubmenu(data.get("Menu")).getPageTitle();
         Assert.assertTrue(title.contains("Echo Pop"),"Title doesnot match");
     }

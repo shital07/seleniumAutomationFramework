@@ -1,5 +1,5 @@
 package com.learn.enums;
 
 public enum WaitStrategy {
-    VISIBLE,PRESENCE,CLICKABLE,NONE
+    VISIBLE,PRESENCE,CLICKABLE, HANDLESTALELEMENT, NONE
 }
